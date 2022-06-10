@@ -7,6 +7,7 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.compose.rememberNavController
+import com.example.myapplication.databaseCustomer.CustomersViewModel
 import com.example.myapplication.databaseProduct.ItemsViewModel
 import com.example.myapplication.navigation.Routes.*
 import com.example.myapplication.navigation.NavigationHost
@@ -15,7 +16,8 @@ import com.example.myapplication.presentation.components.BottomNavigationBar
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val itemViewModel = ViewModelProvider(this).get(ItemsViewModel::class.java)
+        val itemViewModel = ViewModelProvider(this)[ItemsViewModel::class.java]
+        val customerViewModel = ViewModelProvider(this)[CustomersViewModel::class.java]
         setContent {
             MainViews()
 

@@ -31,7 +31,8 @@ import com.example.myapplication.databaseCustomer.CustomersViewModel
 
 
 @Composable
-fun Ventana4 (CustomersViewModel: CustomersViewModel) {
+fun Ventana4 (customersViewModel: CustomersViewModel) {
+
     Column(
     modifier = Modifier
     .fillMaxSize()
@@ -53,7 +54,7 @@ fun Ventana4 (CustomersViewModel: CustomersViewModel) {
             )
         }
 
-        val itemList = CustomersViewModel.readAllData.observeAsState(arrayListOf())
+        val itemList = customersViewModel.readAllData.observeAsState(arrayListOf())
         Scaffold(modifier = Modifier.height(550.dp),
             backgroundColor = Color(0xFFE5FFC7),
             floatingActionButton = {
@@ -61,7 +62,7 @@ fun Ventana4 (CustomersViewModel: CustomersViewModel) {
                     backgroundColor = Color(0xFF4BA04E),
 
                     text = {
-                        Text(text = "Producto", color = Color.White)
+                        Text(text = "Usuario", color = Color.White)
                     },
 
                     onClick = {
@@ -83,13 +84,13 @@ fun Ventana4 (CustomersViewModel: CustomersViewModel) {
 
                         )
                         val last = customerl.random()
-                        val numbers = mutableListOf(5, 1, 2, 3, 4, 6, 9, 7, 10)
+                        val numbers = mutableListOf(10,15,18,20,22,25)
                         val edad = numbers.random()
-                        CustomersViewModel.addCustomer(
+                        customersViewModel.addCustomer(
                             Customers(
                                 customerName = name,
                                 customerLastname = last,
-                                customerEdad ="20" ,
+                                customerEdad =edad.toString() ,
 
                                 ),
                         )
@@ -162,7 +163,7 @@ fun Ventana4 (CustomersViewModel: CustomersViewModel) {
                                             tint = Color(0xFF4BA04E), modifier = Modifier
                                                 .size(30.dp)
                                                 .clickable(onClick = {
-                                                    CustomersViewModel.updateCustomer(it)
+                                                    customersViewModel.updateCustomer(it)
                                                 })
                                         )
 
@@ -173,7 +174,7 @@ fun Ventana4 (CustomersViewModel: CustomersViewModel) {
                                             tint = Color(0xFF4BA04E), modifier = Modifier
                                                 .size(30.dp)
                                                 .clickable(onClick = {
-                                                    CustomersViewModel.deleteCustomer(it)
+                                                    customersViewModel.deleteCustomer(it)
                                                 })
                                         )
                                     })

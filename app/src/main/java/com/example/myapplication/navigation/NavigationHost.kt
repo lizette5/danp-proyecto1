@@ -33,7 +33,7 @@ fun NavigationHost(navController: NavHostController){
         )
         { navBackStackEntry ->
         var newText = navBackStackEntry.arguments?.getString("newText")
-        val itemViewModel = ViewModelProvider(navController.currentBackStackEntry!!).get(ItemsViewModel::class.java)
+        val itemViewModel = ViewModelProvider(navController.currentBackStackEntry!!)[ItemsViewModel::class.java]
 
         requireNotNull(newText)
         Ventana2(newText,itemViewModel)
@@ -44,8 +44,7 @@ fun NavigationHost(navController: NavHostController){
         }
         composable(Ventana4.route)
         {
-            val customerViewModel = ViewModelProvider(navController.currentBackStackEntry!!).get(
-                CustomersViewModel::class.java)
+            val customerViewModel = ViewModelProvider(navController.currentBackStackEntry!!)[CustomersViewModel::class.java]
             Ventana4(customerViewModel)
         }
 

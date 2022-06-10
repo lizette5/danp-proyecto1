@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.example.myapplication.databaseCustomer.DatabaseDao
 import com.example.myapplication.databaseCustomer.Customers
 
-@Database(entities = [Customers::class], version = 1)
+@Database(entities = [Customers::class], version = 2)
 abstract class DatabaseData : RoomDatabase() {
     abstract fun todoDao(): DatabaseDao
     companion object {
@@ -19,7 +19,7 @@ abstract class DatabaseData : RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         DatabaseData::class.java,
-                        "list_database"
+                        "listC_database"
                     ).fallbackToDestructiveMigration()
                         .build()
                     INSTANCE = instance
