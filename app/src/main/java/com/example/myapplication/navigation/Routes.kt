@@ -1,6 +1,7 @@
 package com.example.myapplication.navigation
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.List
@@ -19,4 +20,5 @@ sealed class Routes(
         fun createRoute(newText: String) = "ventana2/?newText=$newText"
     }
     object Ventana3 : Routes("ventana3", "Información", Icons.Filled.Info)
+    object Ventana4 : Routes("ventana4", "Usuario", Icons.Filled.AccountCircle)
 }
